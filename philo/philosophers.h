@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:28:43 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 12:24:13 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:34:01 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ t_protected_variable	ft_create_protected_variable(void);
 // time.c
 long					ft_actual_time(void);
 void					ft_usleep(long int ms);
+
+// task.c
+void					ft_print(t_philosopher *philosopher, const char *m);
+void					ft_eat(t_philosopher *philosopher);
+void					ft_sleep(t_philosopher *philosopher);
+void					ft_think(t_philosopher *philosopher);
 
 // routine.c
 void					*ft_routine(t_philosopher *philosopher);

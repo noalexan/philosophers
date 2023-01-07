@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:39:43 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 13:08:20 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:44:25 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void	ft_launch(t_philosopher *list)
 
 	i = list->data->nb_of_philo;
 	while (i--)
+	{
 		pthread_create(
 			&list[i].thread, NULL, (void *(*)(void *)) ft_routine, &list[i]);
+		pthread_detach(list[i].thread);
+	}
 }
