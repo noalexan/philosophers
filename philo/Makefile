@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 
-SRC =	main.c
+SRC =	main.c args.c
 
 OBJ = $(SRC:.c=.o)
 
