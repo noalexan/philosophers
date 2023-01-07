@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 
-SRC =	main.c args.c protected.c routine.c task.c thread.c time.c
+SRC =	main.c args.c protected.c routine.c task.c thread.c time.c end.c
 
 OBJ = $(SRC:.c=.o)
 

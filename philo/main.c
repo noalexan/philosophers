@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:09:14 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 13:16:19 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:43:22 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 	}
 	ft_init_list(&list, data);
 	ft_launch(list);
+	ft_end_checker(list);
 	return (0);
 }

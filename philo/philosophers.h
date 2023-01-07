@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:28:43 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 13:34:01 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:43:04 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,8 @@ void					ft_think(t_philosopher *philosopher);
 
 // routine.c
 void					*ft_routine(t_philosopher *philosopher);
+
+// end.c
+void					ft_end_checker(t_philosopher *list);
 
 #endif
