@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:41:45 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 15:30:59 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:59:59 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@ void	ft_terminate_all(t_philosopher *list)
 {
 	while (list->data->nb_of_philo--)
 		ft_set_protected_value(&list[list->data->nb_of_philo].end, 1);
+}
+
+int	ft_is_dead(t_philosopher *list, int i)
+{
+	if (!ft_get_protected_value(list[i].eat) && ft_actual_time()
+		- ft_get_protected_value(list[i].time_of_last_eat)
+		>= list->data->time_to_die)
+	{
+		pthread_mutex_lock(&list->data->print);
+		printf("%ld	%d	died\n",
+			ft_actual_time() - list->data->time_at_start, i + 1);
+		ft_terminate_all(list);
+		return (1);
+	}
+	return (0);
 }
 
 void	ft_end_checker(t_philosopher *list)
@@ -34,9 +49,11 @@ void	ft_end_checker(t_philosopher *list)
 			if (notepme && ft_get_protected_value(
 					list[i].number_of_times_i_ate) < notepme)
 				notepme = 0;
+			if (ft_is_dead(list, i))
+				break ;
 		}
 		if (notepme)
 			ft_terminate_all(list);
-		ft_usleep(10);
+		ft_usleep(100);
 	}
 }
