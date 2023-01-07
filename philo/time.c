@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 12:09:14 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 13:16:19 by noalexan         ###   ########.fr       */
+/*   Created: 2023/01/05 11:36:57 by noalexan          #+#    #+#             */
+/*   Updated: 2023/01/05 11:37:08 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int argc, char **argv)
+long	ft_actual_time(void)
 {
-	t_data			data;
-	t_philosopher	*list;
+	struct timeval	time;
 
-	data = ft_parse_args(argc, argv);
-	if (data.error)
-	{
-		write(2, USAGE_ERROR, 131);
-		return (data.error);
-	}
-	ft_init_list(&list, data);
-	ft_launch(list);
-	return (0);
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+void	ft_usleep(long int ms)
+{
+	long int	time;
+
+	time = ft_actual_time();
+	while ((ft_actual_time() - time) < ms)
+		usleep(150);
 }
