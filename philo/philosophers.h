@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:28:43 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 14:43:04 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:19:17 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_philosopher
 t_data					ft_parse_args(int argc, char **argv);
 
 // thread.c
-void					ft_init_list(t_philosopher **list, t_data data);
+void					ft_init_list(t_philosopher **list, t_data *data);
 void					ft_launch(t_philosopher *list);
 
 // protected.c

@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:37:36 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/07 14:28:34 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:48:27 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_eat(t_philosopher *philosopher)
 {
 	ft_take_a_fork(philosopher, &philosopher->right);
 	ft_take_a_fork(philosopher, philosopher->left);
+	ft_set_protected_value(&philosopher->time_of_last_eat, ft_actual_time());
 	if (!ft_get_protected_value(philosopher->end))
 		ft_print(philosopher, "is eating");
 	ft_set_protected_value(&philosopher->eat, 1);
@@ -45,7 +46,6 @@ void	ft_eat(t_philosopher *philosopher)
 		pthread_mutex_unlock(&philosopher->right);
 		pthread_mutex_unlock(philosopher->left);
 	}
-	ft_set_protected_value(&philosopher->time_of_last_eat, ft_actual_time());
 	ft_set_protected_value(&philosopher->eat, 0);
 	ft_set_protected_value(&philosopher->number_of_times_i_ate,
 		ft_get_protected_value(philosopher->number_of_times_i_ate) + 1);
