@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 14:41:45 by noalexan          #+#    #+#             */
-/*   Updated: 2023/01/08 20:36:15 by noalexan         ###   ########.fr       */
+/*   Updated: 2023/01/08 23:16:50 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	ft_end_checker(t_philosopher *list)
 		i = list->data->nb_of_philo;
 		while (i--)
 		{
-			// printf("notepme %d: %ld\n", list[i].id, list[i].number_of_times_i_ate.value);
 			if (notepme && ft_get_protected_value(
 					list[i].number_of_times_i_ate) < notepme)
 				notepme = 0;

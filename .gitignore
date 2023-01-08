@@ -1,7 +1,0 @@
-*
-
-!/philo
-!/philo/*.c
-!/philo/*.h
-!/philo/Makefile
-!.gitignore
